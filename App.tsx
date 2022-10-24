@@ -1,9 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
 import HomeScreen from './screens/HomeScreen';
+import MessScreen from './screens/MessScreen';
+import { RootStackParamList } from './types';
 
 
-const Stack = createNativeStackNavigator();
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 
 export default function App() {
@@ -11,6 +14,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name="Home" component={HomeScreen} options={{title:"Home Page", headerTitleAlign:"center"}}/>
+      <Stack.Screen name="messPage" component={MessScreen} options={{title:"Mess Page"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
