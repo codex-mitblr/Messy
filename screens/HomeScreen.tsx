@@ -6,7 +6,6 @@ import { Button } from 'react-native-paper'
 import { RootStackParamList } from '../types';
 
 
-type Props = NativeStackNavigationProp<RootStackParamList, 'Home'>;
 
 const HomeScreen = () => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
@@ -16,6 +15,10 @@ const HomeScreen = () => {
         navigation.navigate('messPage', { mess: "veg mess" })
       }} mode="contained" style={styles.MessButtons}>Veg Mess</Button>
       <Button onPress={() => { navigation.navigate('messPage',{mess:"Non-veg mess"})}} mode="contained" style={styles.MessButtons}>Non-Veg Mess</Button>
+      <Button onPress={()=>{ navigation.navigate("GroupPage",{groupID:"groupA001"})}}>
+       Group A
+      </Button>
+    
     </View>
   )
 }
