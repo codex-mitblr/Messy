@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator, NativeStackScreenProps } from '@react-navigation/native-stack';
+import GroupPage from './screens/GroupPage';
 import HomeScreen from './screens/HomeScreen';
 import MessScreen from './screens/MessScreen';
 import { RootStackParamList } from './types';
@@ -14,7 +15,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
         <Stack.Screen name="Home" component={HomeScreen} options={{title:"Home Page", headerTitleAlign:"center"}}/>
-      <Stack.Screen name="messPage" component={MessScreen} options={{title:"Mess Page"}}/>
+        <Stack.Screen name="messPage" component={MessScreen} options={{title:"Mess Page"}}/>
+      <Stack.Screen name="GroupPage" component={GroupPage} options={{title:"Group Page"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
