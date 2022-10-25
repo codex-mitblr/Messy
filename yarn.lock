@@ -3010,7 +3010,7 @@ expo-asset@~8.6.1:
     path-browserify "^1.0.0"
     url-parse "^1.5.9"
 
-expo-auth-session@~3.7.1:
+expo-auth-session@^3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/expo-auth-session/-/expo-auth-session-3.7.1.tgz#6c76d12220e2914998e030203afddc24b994a6a0"
   integrity sha512-sUOdXBclpYSZEvOkaSbOpLhhtGUQ485ltPfq0sQi+24wh33rKLH2yBocL5QeU/yq/8bafHEWQvkKaUIA2Qq+dA==
