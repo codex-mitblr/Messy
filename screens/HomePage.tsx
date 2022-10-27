@@ -1,15 +1,19 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet,Text,View, ScrollView} from 'react-native';
 import MessButtons from '../components/MessButtons';
+import { RootStackParamList } from '../types';
 const icon = require('../assets/Icon.png')
-export default function HomePage(){
+
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+const HomePage:React.FC<Props>= ({route,navigation})=>{
 const a =['Group A','Group B','Group C','Group D','Group E','Group F','Group G','Group H',]
 
   return(
     <ScrollView showsHorizontalScrollIndicator={false}>
       <View style={styles.container}>
-      <MessButtons name='Veg Mess' padding={20} height={150} width={300} onPress={()=> alert('veg mess pressed')}/>
-      <MessButtons name='Non Veg Mess'padding={20} height={150} width={300} onPress={()=> alert('non veg mess pressed')}/>
+      <MessButtons name='Veg Mess' padding={20} height={150} width={300} onPress={()=> {navigation.navigate("messPage",{mess:"veg-mess"})}}/>
+      <MessButtons name='Non Veg Mess'padding={20} height={150} width={300} onPress={()=> {navigation.navigate("messPage",{mess:"non-veg-mess"})}}/>
       <Text>Mess I am currently in: </Text>
       <View style={{flexDirection:'row'}}>
       <MessButtons name='VEG'padding={20}onPress={()=> alert('veg pressed')}/>
@@ -42,3 +46,5 @@ const styles = StyleSheet.create({
     padding: 20,
   },
 })
+
+export default HomePage;
