@@ -23,11 +23,11 @@ function InfoBlock({src,name, rating,mess}:Props) {
             </View>
             <View style={{flexDirection:'row', width:Dimensions.get('window').width-160,justifyContent:'space-around'}}>
               <TouchableOpacity style={{alignItems:"center"}} onPress={()=>setColor('green')}>
-              <FontAwesome name="thumbs-up" size={24} color={color=="green"?'green':"black"} />
+              <FontAwesome name="thumbs-up" size={24} color={color=="green"?'green':"grey"} />
                 <Text style={{fontSize:10, color:(color=='green')? 'green':'grey'}}>{rating}%</Text>
               </TouchableOpacity>
               <TouchableOpacity style={{alignItems:'center'}} onPress={()=>setColor('red')}>
-              <FontAwesome name="thumbs-down" size={24} color={color=="red"?'red':"black"} />
+              <FontAwesome name="thumbs-down" size={24} color={color=="red"?'red':"grey"} />
                 <Text style={{fontSize:10, color:(color=='red')? 'red':'grey'}}>{100 - rating}%</Text>
               </TouchableOpacity>
             </View>
