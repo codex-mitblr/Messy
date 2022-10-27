@@ -2,8 +2,14 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import InfoBlock from '../components/InfoBlock'
 import PointerBlock from '../components/PointerBlock'
-const image = require('../assets/Icon.png')
-export default function MessPage() {
+import { RootStackParamList } from '../types'
+import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack'
+
+const image = require('../assets/icon.png');
+
+type Props = NativeStackScreenProps<RootStackParamList, 'messPage'>;
+
+const MessPage:React.FC<Props>= ({route,navigation})=>  {
   return (
     <View style={styles.container}>
         <Text>Number of people in the mess: {}</Text>
@@ -15,7 +21,7 @@ export default function MessPage() {
     </View>
   )
 }
-
+export default MessPage
 
 const styles = StyleSheet.create({
     container:{
