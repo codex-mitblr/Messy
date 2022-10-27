@@ -27,13 +27,14 @@ const HomeScreen = () => {
       <Button onPress={() => {
         navigation.navigate('messPage', { mess: "veg mess" })
       }} mode="contained" style={styles.MessButtons}>Veg Mess</Button>
-      <Button onPress={() => { navigation.navigate('messPage',{mess:"Non-veg mess"})}} mode="contained" style={styles.MessButtons}>Non-Veg Mess</Button>
-      <Button onPress={()=>{ navigation.navigate("GroupPage",{groupID:"groupA001"})}}>
-       Group A
+      <Button onPress={() => { navigation.navigate('messPage', { mess: "Non-veg mess" }) }} mode="contained" style={styles.MessButtons}>Non-Veg Mess</Button>
+      <Button onPress={() => { navigation.navigate("GroupPage", { groupID: "groupA001" }) }}>
+        Group A
       </Button>
       <Button
-      onPress={()=>{promptAsync();
-      }}>
+        onPress={() => {
+          promptAsync();
+        }}>
         login
       </Button>
       <Text>
