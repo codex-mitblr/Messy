@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Dimensions, Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-const like = require('../assets/like.png')
-const dislike = require('../assets/dislike.png')
-const like_green = require('../assets/like-green.png')
-const dislike_red = require('../assets/dislike-red.png')
-
+import { FontAwesome } from '@expo/vector-icons';
 interface Props{
     src?:ImageSourcePropType,
     message: string,
@@ -20,11 +16,11 @@ export default function PointerBlock({src,message,rating}:Props) {
         <Text>{message}</Text>
         <View style={{flexDirection:'row', width:Dimensions.get('window').width-160,justifyContent:'space-around'}}>
               <TouchableOpacity style={{alignItems:"center"}} onPress={()=>setColor('green')}>
-                <Image style={styles.like_button} source={(color=='green')? like_green:like}/>
+              <FontAwesome name="thumbs-up" size={24} color={color=="green"?'green':"black"} />
                 <Text style={{fontSize:10, color:(color=='green')? 'green':'grey'}}>{rating}%</Text>
               </TouchableOpacity>
               <TouchableOpacity style={{alignItems:'center'}} onPress={()=>setColor('red')}>
-                <Image style={styles.like_button} source={(color=='red')? dislike_red:dislike}/>
+              <FontAwesome name="thumbs-down" size={24} color={color=="red"?'red':"black"} />
                 <Text style={{fontSize:10, color:(color=='red')? 'red':'grey'}}>{100 - rating}%</Text>
               </TouchableOpacity>
         </View>
@@ -37,11 +33,11 @@ export default function PointerBlock({src,message,rating}:Props) {
         <Text>{message}</Text>
         <View style={{flexDirection:'row', width:Dimensions.get('window').width-160,justifyContent:'space-around'}}>
               <TouchableOpacity style={{alignItems:"center"}} onPress={()=>setColor('green')}>
-                <Image style={styles.like_button} source={(color=='green')? like_green:like}/>
+              <FontAwesome name="thumbs-up" size={24} color={color=="green"?'green':"black"} />
                 <Text style={{fontSize:10, color:(color=='green')? 'green':'grey'}}>{rating}%</Text>
               </TouchableOpacity>
               <TouchableOpacity style={{alignItems:'center'}} onPress={()=>setColor('red')}>
-                <Image style={styles.like_button} source={(color=='red')? dislike_red:dislike}/>
+              <FontAwesome name="thumbs-down" size={24} color={color=="red"?'red':"black"} />
                 <Text style={{fontSize:10, color:(color=='red')? 'red':'grey'}}>{100 - rating}%</Text>
               </TouchableOpacity>
         </View>
