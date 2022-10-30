@@ -7,7 +7,7 @@ import { RootStackParamList } from '../types'
 
 type Props = NativeStackScreenProps<RootStackParamList, "GroupPage">
 
-const GroupPage:React.FC<Props> = ({route}) => {
+const GroupPage:React.FC<Props> = ({route,navigation}) => {
     return (
         <View>
             <Text>
