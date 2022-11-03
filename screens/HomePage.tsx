@@ -1,6 +1,7 @@
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet,Text,View, ScrollView} from 'react-native';
+import MemberBlock from '../components/MemberBlock';
 import MessButtons from '../components/MessButtons';
 import ToggleMess from '../components/ToggleMess';
 import { RootStackParamList } from '../types';
@@ -8,7 +9,7 @@ const icon = require('../assets/Icon.png')
 
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 const HomePage:React.FC<Props>= ({route,navigation})=>{
-const a =['Group A','Group B','Group C','Group D','Group E','Group F','Group G','Group H',]
+const a =['Group A', 'Group B', 'Group C']
 
   return(
     <ScrollView showsHorizontalScrollIndicator={false}>
@@ -16,7 +17,7 @@ const a =['Group A','Group B','Group C','Group D','Group E','Group F','Group G',
       <MessButtons name='Veg Mess' padding={20} height={150} width={300} onPress={()=> {navigation.navigate("messPage",{mess:"veg-mess"})}}/>
       <MessButtons name='Non Veg Mess'padding={20} height={150} width={300} onPress={()=> {navigation.navigate("messPage",{mess:"non-veg-mess"})}}/>
       <Text>Mess I am currently in: </Text>
-      <ToggleMess/>
+      <ToggleMess values={['VEG','NONE','NON-VEG']} init_pos={1}/>
       <Text style={{paddingBottom:10}}>Groups</Text>
       {
         a.map((e)=>{
@@ -46,10 +47,3 @@ const styles = StyleSheet.create({
 })
 
 export default HomePage;
-
-
-/*
-      <View style={{flexDirection:'row'}}>
-      <MessButtons name='VEG'padding={20}onPress={()=> alert('veg pressed')}/>
-      <MessButtons name='NON VEG'padding={20}onPress={()=> alert('non veg pressed')}/>
-      </View>*/

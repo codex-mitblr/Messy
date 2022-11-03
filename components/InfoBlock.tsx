@@ -3,20 +3,18 @@ import { Image, ImageSourcePropType, StyleSheet, View,Text, TouchableOpacity, Di
 import { FontAwesome } from '@expo/vector-icons';
 
 interface Props{
-    src: ImageSourcePropType,
+    src: string,
     name: string,
-    rating?: number,
-    mess?: string,
+    rating: number,
 }
 
-function InfoBlock({src,name, rating,mess}:Props) {
+function InfoBlock({src,name, rating}:Props) {
   const [color, setColor] = useState('grey')
-  if (rating!=undefined){
     return (
       <View>
 
       <View style={styles.container}>
-          <Image style={styles.image} source={src}/>
+          <Image style={styles.image} source={{uri: src}}/>
           <View style={{flexDirection:'column', alignItems:'center',justifyContent:'space-between',width:Dimensions.get('window').width-160}}>
             <View>
               <Text style={styles.name}>{name}</Text>
@@ -36,22 +34,6 @@ function InfoBlock({src,name, rating,mess}:Props) {
       </View>
     )
   }
-  else{
-    return (
-      <View style={{padding:20}}>
-        <View style={styles.container}>
-          <Image style={styles.image} source={src}/>
-          <View style={{flexDirection:'column', alignItems:'center',justifyContent:'space-between',width:Dimensions.get('window').width-160}}>
-            <View>
-              <Text style={styles.name}>{name}</Text>
-            </View>
-            <Text>Mess: {mess}</Text>
-          </View>
-        </View>
-      </View>
-    )
-  }
-}
 
 const styles= StyleSheet.create({
     container:{

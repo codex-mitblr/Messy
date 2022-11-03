@@ -1,10 +1,16 @@
 import React, { useRef, useState } from 'react'
 import { Animated, Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
+interface Props{
+    values: string[],
+    init_pos: number
+}
+
+
 const ScreenWidth = Dimensions.get('window').width
-function ToggleMess() {
-    const [mess , setMess] = useState('NONE')
-    const pos= useRef(new Animated.Value(50)).current;
+function ToggleMess({values,init_pos}:Props) {
+    const [mess , setMess] = useState((values[init_pos]))
+    const pos= useRef(new Animated.Value(styles.container.width/values.length)).current;
     const trasistionButton = (x:number)=>{
         Animated.timing(pos,{
             toValue: x,
@@ -14,16 +20,16 @@ function ToggleMess() {
     }
   return (
     <View style={styles.container}>
-        <TouchableOpacity style={styles.TouchableOpacity} onPress={()=>{setMess('VEG'), trasistionButton(0)}}>
-            <Text>VEG</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.TouchableOpacity} onPress={()=>{setMess('NONE'), trasistionButton(styles.container.width/3)}}>
-            <Text>NONE</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.TouchableOpacity} onPress={()=>{setMess('NON-VEG'), trasistionButton(2/3*styles.container.width)}}>
-            <Text>NON-VEG</Text>
-        </TouchableOpacity>
-        <Animated.View style={[styles.anim_view, {transform: [{translateX:pos}]} ]}>
+        {
+            values.map((e)=>{
+                return (<TouchableOpacity style={[styles.TouchableOpacity, {flex:1/values.length}]} onPress={()=>{setMess(e), trasistionButton(values.indexOf(e)/values.length*styles.container.width)}} key={e}>
+                            <Text>{e}</Text>
+                        </TouchableOpacity>)
+            })
+                
+        }
+        
+        <Animated.View style={[styles.anim_view, {transform: [{translateX:pos}], width: 0.8*ScreenWidth/values.length} ]}>
             <Text>{mess}</Text>
         </Animated.View>
     </View>
@@ -33,7 +39,6 @@ function ToggleMess() {
 const styles = StyleSheet.create({
     container:{
         backgroundColor:"#EFEFEF",
-        elevation:-5,
         borderRadius:15,
         margin:10,
         flexDirection:'row',
@@ -41,7 +46,6 @@ const styles = StyleSheet.create({
     },
     TouchableOpacity:{
         padding:10,
-        flex:1/3,
         alignItems:'center'
     },
     anim_view:{
@@ -50,7 +54,6 @@ const styles = StyleSheet.create({
         borderRadius:15,
         padding:9,
         elevation:3,
-        width: 0.8*ScreenWidth/3,
         alignItems:'center'
     },
 })

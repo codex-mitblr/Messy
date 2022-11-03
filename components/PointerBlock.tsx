@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Dimensions, Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 interface Props{
-    src?:ImageSourcePropType,
+    src?:string,
     message: string,
     rating: number,
 }
@@ -12,7 +12,7 @@ export default function PointerBlock({src,message,rating}:Props) {
   if (src!=undefined)
   return (
     <View style={styles.container}>
-        {<Image style={styles.image} source={src}/>}
+        {<Image style={styles.image} source={{uri:src}}/>}
         <Text>{message}</Text>
         <View style={{flexDirection:'row', width:Dimensions.get('window').width-160,justifyContent:'space-around'}}>
               <TouchableOpacity style={{alignItems:"center"}} onPress={()=>setColor('green')}>
