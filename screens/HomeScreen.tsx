@@ -1,14 +1,16 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { makeRedirectUri, useAuthRequest, useAutoDiscovery } from 'expo-auth-session';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { Button } from 'react-native-paper'
 import { RootStackParamList } from '../types';
-
-
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, User } from 'firebase/auth';
+import { provider } from '../FirebaseFunctions';
+import { firebase } from '../FirebaseConfig'
 
 const HomeScreen = () => {
+  const [user, setUser] = useState<User>();
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const discovery = useAutoDiscovery('https://login.microsoftonline.com/f0ee14ae-dd70-4d49-9459-ca2044a434e5/v2.0');
   const [request, response, promptAsync] = useAuthRequest(
@@ -21,7 +23,16 @@ const HomeScreen = () => {
     },
     discovery
   );
-  console.log(response)
+  console.log(response);
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((e) => {
+      if(e){
+
+      }
+    });
+    firebase
+  }, [])
   return (
     <View style={styles.container}>
       <Button onPress={() => {
@@ -32,8 +43,9 @@ const HomeScreen = () => {
         Group A
       </Button>
       <Button
-        onPress={() => {
-          promptAsync();
+        onPress={async () => {
+          firebase.auth().signInWithRedirect(provider)
+
         }}>
         login
       </Button>

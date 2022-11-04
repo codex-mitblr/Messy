@@ -15,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name="Home" component={HomeScreen} options={{title:"Home Page", headerTitleAlign:"center"}}/>
+        <Stack.Screen name="Home" component={HomeScreen} options={{title:"Home Page", headerTitleAlign:"center", headerShown:false}}/>
         <Stack.Screen name="messPage" component={MessPage} options={{title:"Mess Page"}}/>
       <Stack.Screen name="GroupPage" component={GroupPage} options={{title:"Group Page"}}/>
       </Stack.Navigator>
