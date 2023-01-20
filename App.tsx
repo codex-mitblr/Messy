@@ -7,7 +7,7 @@ import MessPage from './screens/MessPage';
 import { RootStackParamList } from './types';
 import HomePage from './screens/HomePage';
 import LoginPage from './screens/LoginPage';
-
+import Splash from './screens/Splash'
 
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -16,11 +16,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='LoginPage' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Splash" component={Splash} options={{title: 'Splash Page'}}/>
         <Stack.Screen name="LoginPage" component={LoginPage} options = {{title:"Login Page"}}/>
         <Stack.Screen name="Home" component={HomePage} options={{title:"Home Page", headerTitleAlign:"center"}}/>
         <Stack.Screen name="messPage" component={MessPage} options={{title:"Mess Page"}}/>
-      <Stack.Screen name="GroupPage" component={GroupPage} options={{title:"Group Page"}}/>
+        <Stack.Screen name="GroupPage" component={GroupPage} options={{title:"Group Page"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

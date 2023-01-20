@@ -8,6 +8,7 @@ export type RootStackParamList = {
   Home;
   messPage: { mess: string};
   GroupPage: {groupID: string};
+  Splash;
 };
 
 export interface FoodMenuItem{

@@ -19,7 +19,7 @@ const GroupPage:React.FC<Props> = ({route,navigation}) => {
             <View style={{display:"flex", alignItems:"center", flexDirection:"column"}}>
             {
                 member.map((e)=>{
-                    return (<MemberBlock name={e.name} src={e.src} mess={e.mess}/>)
+                    return (<MemberBlock name={e.name} src={e.src} mess={e.mess} key={e.name}/>)
                 })
             }
             </View>
