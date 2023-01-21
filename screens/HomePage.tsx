@@ -37,16 +37,16 @@ const HomePage:React.FC<Props>= ({route,navigation})=>{
     Animated.timing(bounce,{
       toValue:0,
       duration:2000,
-      easing:Easing.elastic(2),
+      easing:Easing.elastic(5),
       useNativeDriver:true,
     }).start()
   }, [])
   
   return(
     <View style={styles.container}>
-    <View style={{position:'absolute',bottom:0, height:"30%", backgroundColor:'#fff',width:400}}/>
     <Animated.View style={[styles.container,{transform:[{translateY:bounce}]}]}>
-      <ScrollView style={{  }} showsHorizontalScrollIndicator={false}>
+      <View style={{backgroundColor:'#f8d869',height:1000,position:'absolute',width:1000,top:-500}}/>
+      <ScrollView style={{}} showsHorizontalScrollIndicator={false}>
         <View style={styles.head}>
           <Animated.Image source={plate} style={[styles.bgimage, {    transform: [{rotate: RotateData}]}]}/>
           <View style={styles.body}>
@@ -76,7 +76,6 @@ const HomePage:React.FC<Props>= ({route,navigation})=>{
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:"#f8d869"
   },
   body: {
     borderTopLeftRadius:50,
@@ -95,6 +94,7 @@ const styles = StyleSheet.create({
   },
   head:{
     justifyContent:'center',
+    overflow:'visible'
   },
   bgimage:{
     height:360,

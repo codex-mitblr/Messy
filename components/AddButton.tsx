@@ -3,11 +3,13 @@ import {Text, Animated, StyleProp, StyleSheet, TouchableOpacity, View, ViewStyle
 import { FontAwesome } from '@expo/vector-icons';
 
 interface Props{
+    options?: string[],
     style?: StyleProp<ViewStyle>,
     onPress: ()=>void,
 }
 
-function AddButton({style,onPress}:Props) {
+function AddButton({options,style,onPress}:Props) {
+    
     return (
         <View style={[styles.container,style]}>
             <TouchableOpacity onPress={()=>{onPress()}} onPressIn={()=>{}}>
