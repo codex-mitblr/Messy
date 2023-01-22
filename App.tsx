@@ -17,7 +17,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='NewPost' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Splash' screenOptions={{headerShown: false}}>
         <Stack.Screen name="Splash" component={Splash} options={{title: 'Splash Page'}}/>
         <Stack.Screen name="LoginPage" component={LoginPage} options = {{title:"Login Page"}}/>
         <Stack.Screen name="Home" component={HomePage} options={{title:"Home Page", headerTitleAlign:"center"}}/>

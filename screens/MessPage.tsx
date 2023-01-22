@@ -60,7 +60,7 @@ const MessPage:React.FC<Props>= ({route,navigation})=>  {
         <PointerBlock message='the text and username (baisically a tweet kinda interface)' rating={52}/>
       </View>
     </ScrollView>
-        <AddButton onPress={()=>{navigation.navigate("NewPost")}}/>
+        <AddButton onPress={()=>{navigation.navigate("NewPost",{id:'Insight'})}}/>
     </View>
   )
 }

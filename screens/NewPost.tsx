@@ -13,7 +13,7 @@ const NewPost:React.FC<Props> = ({route,navigation}) => {
     <View style={styles.container}>
             <FontAwesome style={{position:'absolute',top:40,left:30}} name='angle-left' size={30} onPress={()=>{navigation.navigate("Home")}}></FontAwesome>
         <View style={styles.heading}>
-            <Text style={{fontSize:25}}>New Insight</Text>
+            <Text style={{fontSize:25}}>New {route.params.id}</Text>
         </View>
         <View style={styles.content}>
             <TextInput editable multiline autoFocus numberOfLines={5} style={styles.textinput} onChangeText={(text)=>{setvalue(text)}} value={value} placeholder={"write your review"}/>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between'
     },
     submitbutton:{
-        backgroundColor:"#727FF8",
+        backgroundColor:"#6C83FF",
         margin:7,
         alignItems:'center',
         justifyContent:'center',

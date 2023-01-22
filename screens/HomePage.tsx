@@ -62,8 +62,8 @@ const HomePage:React.FC<Props>= ({route,navigation})=>{
               })
             }
             <Text style={{paddingTop:30,paddingBottom:10,fontSize:15}}>Feedback</Text>
-            <MessButtons name='Send feedback to caterer' padding={5} width={300} onPress={()=> alert('feedback pressed')}/>
-            <MessButtons name='Send app feedback or ideas' padding={5} width={300} onPress={()=> alert('ideas pressed')}/>
+            <MessButtons name='Send feedback to caterer' padding={5} width={300} onPress={()=> {navigation.navigate('NewPost',{id:'Feedback'})}}/>
+            <MessButtons name='Send app feedback or ideas' padding={5} width={300} onPress={()=> {navigation.navigate('NewPost',{id:'Ideas'})}}/>
           </View>
         </View>
       </ScrollView>
